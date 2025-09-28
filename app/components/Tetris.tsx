@@ -117,7 +117,7 @@ export default function Tetris({ isOpen, onClose }: { isOpen: boolean; onClose: 
     const newY = currentPiece.y + dy
     
     if (isValidMove(currentPiece, newX, newY)) {
-      setCurrentPiece(prev => ({ ...prev, x: newX, y: newY }))
+      setCurrentPiece((prev: any) => ({ ...prev, x: newX, y: newY }))
       if (dx !== 0) playSound('move')
     } else if (dy > 0) {
       placePiece()
@@ -128,7 +128,7 @@ export default function Tetris({ isOpen, onClose }: { isOpen: boolean; onClose: 
     if (!currentPiece || gameOver) return
     const rotated = rotatePiece(currentPiece.shape)
     if (isValidMove(currentPiece, currentPiece.x, currentPiece.y, rotated)) {
-      setCurrentPiece(prev => ({ ...prev, shape: rotated }))
+      setCurrentPiece((prev: any) => ({ ...prev, shape: rotated }))
       playSound('rotate')
     }
   }, [currentPiece, board, gameOver])

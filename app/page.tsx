@@ -27,8 +27,9 @@ export default function Home() {
               alt="Lehlogonolo Masubelele" 
               className="w-full h-full object-cover rounded-full border-2 border-primary/30" 
               onError={(e) => {
-                e.target.style.display = 'none';
-                e.target.nextElementSibling.style.display = 'flex';
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                (target.nextElementSibling as HTMLElement).style.display = 'flex';
               }}
             />
             <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 rounded-full border-2 border-primary/20 flex items-center justify-center" style={{display: 'none'}}>
